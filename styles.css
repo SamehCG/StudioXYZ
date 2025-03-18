@@ -13,7 +13,7 @@ body {
     width: 100%;
     overflow-y:inherit;
     overflow-x: hidden !important;
-    margin: 30px; /* Ensures no unintentional margins cause overflow */
+    margin: 30%; /* Ensures no unintentional margins cause overflow */
     padding: 0;
    
 }
