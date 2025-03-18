@@ -501,7 +501,7 @@ object-fit: contain;
 .lenis.lenis-smooth {
   max-width: 100%;
   width: auto;
-  margin: 25%;
+  margin: 7.5%;
   margin-top: 3%;
   
   scroll-behavior: auto;
