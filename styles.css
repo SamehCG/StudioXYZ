@@ -13,7 +13,7 @@ body {
     width: 100%;
     overflow-y:inherit;
     overflow-x: hidden !important;
-    margin: 30%; /* Ensures no unintentional margins cause overflow */
+    margin: 0; /* Ensures no unintentional margins cause overflow */
     padding: 0;
    
 }
@@ -501,7 +501,7 @@ object-fit: contain;
 .lenis.lenis-smooth {
   max-width: 100%;
   width: auto;
-  margin: 7.5%;
+  margin: 25%;
   margin-top: 3%;
   
   scroll-behavior: auto;
