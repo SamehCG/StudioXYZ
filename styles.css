@@ -1,0 +1,756 @@
+html {
+  margin: 0;
+  padding: 0px;
+  width: 100%;
+}
+body {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(39, 39, 39);
+    padding: 40px;
+    margin: 50px;
+    width: 100%;
+    overflow-y:inherit;
+    overflow-x: hidden !important;
+    margin: 0; /* Ensures no unintentional margins cause overflow */
+    padding: 0;
+   
+}
+.image-container-two {
+    flex: 1;
+    font-family: 'Miriam Libre', sans-serif;
+    display: grid;
+    color: rgb(34, 34, 34);
+    font-size: 20px;
+    height: 80dvh;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr ;
+    grid-template-areas:"prjcarda prjcarda prjcardb prjcardb prjcardb prjcardb";
+}
+.image-container-one {
+    
+    flex: 1;
+    font-family: 'Miriam Libre', sans-serif;
+    display: grid;
+    color: rgb(34, 34, 34);
+    font-size: 20px;
+    height: 70dvh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:"prjcarda";
+}
+.image-container-one-prj {
+  
+  flex: 1;
+  font-family: 'Miriam Libre', sans-serif;
+  display: grid;
+  color: rgb(32, 32, 32);
+  font-size: 20px;
+  height: 80dvh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:"prjcarda";
+}
+.image-container-two-flipped {
+    flex: 1;
+    font-family: 'Miriam Libre', sans-serif;
+    display: grid;
+    color: rgb(34, 34, 34);
+    font-size: 20px;
+    height: 80dvh;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr;
+    grid-template-areas:"prjcarda prjcarda prjcarda prjcarda prjcardb prjcardb prjcardb";
+}
+.image-container-two-two {
+    /*/max-width: 100%;*/
+    flex: 1;
+    font-family: 'Miriam Libre', sans-serif;
+    display: grid;
+    color: rgb(34, 34, 34);
+    font-size: 20px;
+    height: 80dvh;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:"prjcarda prjcarda prjcarda prjcarda prjcardb prjcardb prjcardb";
+}
+.image-container-two-two-flipped {
+  /*/max-width: 100%;*/
+  flex: 1;
+  font-family: 'Miriam Libre', sans-serif;
+  display: grid;
+  color: rgb(34, 34, 34);
+  font-size: 20px;
+  height: 80dvh;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:"prjcarda prjcarda prjcarda prjcardb prjcardb prjcardb prjcardb";
+}
+.image-container-two-two-prj {
+  flex: 1;
+  font-family: 'Miriam Libre', sans-serif;
+  display: grid;
+  color: rgb(240, 240, 240);
+  font-size: 20px;
+  height: 80dvh;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:"prjcarda prjcarda prjcarda prjcardb prjcardb prjcardb prjcardb";
+}
+.image-container-05 {
+    flex: 1;
+    font-family: 'Miriam Libre', sans-serif;
+    display: grid;
+    color: rgb(24, 24, 24);
+    font-size: 20px;
+    height: 80dvh;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:"prjcarda prjcarda prjcardb prjcardb prjcardb prjcardb prjcardb";
+}
+
+
+
+.prj-card-a {
+  
+    display: grid;
+    grid-area: prjcarda;
+    width: 100%;
+    height: 100%;
+  
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 75px;
+    grid-template-areas:"prjcardimg prjcardimg"
+    "prjcarddisc prjcarddisc";}
+
+.prj-card-b {
+  
+    display: grid;
+    grid-area: prjcardb;
+    width: 100%;
+    height: 100%;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 75px;
+    grid-template-areas:"prjcardimg prjcardimg"
+    "prjcarddisc prjcarddisc";
+}
+
+.prj-card-a-img{
+  filter: grayscale(100%);
+  transition: filter 0.5s; 
+    margin: 10px 10px 10px 10px;
+    grid-area: prjcardimg
+}
+.prj-card-a-img:hover {
+  filter: grayscale(0%);
+}
+.prj-card-a-disc{
+    
+    margin: 0px 15px 15px 15px;
+    height: 100%;
+    grid-area: prjcarddisc;
+    display: flex;
+    justify-content: space-between;
+    color: #eeeeee;
+}
+.imgprv{
+ object-fit: cover;
+ width: 100%;
+ height: 100%;
+    
+}
+.owner{
+font-size: 15px;
+}
+
+
+
+
+ .fix{
+    object-fit: contain;
+ }
+ .intro {
+    
+    margin: 30px 30px 30px 30px;
+    height: 100vh;
+    display: flex;
+   position:absolute;
+    font-family: 'Miriam Libre', sans-serif;
+    
+    color: rgb(31, 31, 31);
+  
+ }
+
+ .text {
+  align-items: center;
+  justify-content: center;
+   font-family: 'Miriam Libre', sans-serif;
+   position: absolute;
+   width: 97%;
+   height: 85dvh;
+   margin: 0;
+   z-index: 4;
+  color: #d3d3d3;
+ mix-blend-mode: difference;
+    
+ }
+ .text h2 {
+  padding: 50px;
+  align-items: center;
+  align-self: center;
+  padding-top: 40dvh;
+  justify-content: center;
+
+ }
+ .span {
+  display: block;
+    /* border-right: .00em solid; */
+    animation: caret 1s steps(1) infinite;
+    /* mix-blend-mode: difference; */
+  }
+  
+  @keyframes caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+
+h2{
+    font-size: 95px;
+    display: flex;
+    margin: 0;
+    align-items:center;
+    justify-self: center;
+    align-content: center;
+}
+
+  .bg {
+    z-index: -4;
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background-repeat: repeat;
+    animation: bg-animation 0.4s infinite;
+    opacity: 3;
+    visibility: visible;
+  
+  }
+  
+  @keyframes bg-animation {
+      0% { transform: translate(0,0) }
+      10% { transform: translate(-5%,-5%) }
+      20% { transform: translate(-10%,5%) }
+      30% { transform: translate(5%,-10%) }
+      40% { transform: translate(-5%,15%) }
+      50% { transform: translate(-10%,5%) }
+      60% { transform: translate(15%,0) }
+      70% { transform: translate(0,10%) }
+      80% { transform: translate(-15%,0) }
+      90% { transform: translate(10%,5%) }
+      100% { transform: translate(5%,0) }
+  }
+  
+ 
+
+  #circle {
+   margin-left: -40px;
+   margin-top: -40px;
+    z-index: 2;
+    display: flex;
+    width: 80px;
+    height: 80px;
+    background-color: #d3d3d3;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+.header {
+  display: flex;
+  width: 100%;
+  max-height: 15dvh;
+  justify-content: space-between;
+  z-index: 2s;
+  color: white;
+  align-items: center;
+  font-family: 'Miriam Libre', sans-serif;
+  font-weight: 600;
+}
+.header-prj {
+  display: flex;
+  width: 100%;
+  max-height: 15dvh;
+  justify-content: space-between;
+  z-index: 2s;
+  color: white;
+  align-items: center;
+  font-family: 'Miriam Libre', sans-serif;
+  font-weight: 600;
+  position: fixed;
+  opacity: 0%;
+  translate: 0 -50%;
+  transition: 0.5s ease-in-out;
+  
+}
+.header-prj:hover {
+  opacity: 100%;
+  translate: 0 0%;
+  position: absolute;
+  background-color: #202020;
+
+}
+.logo {
+ z-index: 4;
+ /*padding-top: 25px;*/
+  /*padding-left: 30px; */
+  height: auto;
+  /* object-fit: fill; */
+ width: 5%;
+  display:block;
+  margin: 14px;
+  margin-bottom: 60px;
+  filter: grayscale(100%);
+  
+
+ 
+}
+.logotran {
+  z-index: 8;
+  position: absolute;
+  margin: 14px;
+  margin-bottom: 60px;
+  
+
+ }
+.logo img{
+  width: 100%; /* Make the image fill the container width */
+  height: auto; /* Maintain the aspect ratio */
+  display: block;
+  align-self: center;
+  align-items: center;
+  object-fit: cover;
+}
+
+
+.menu {
+  width: 5%;
+  margin: 50px;
+  align-items: center;
+  justify-content: center;
+  /* padding-right: 30px;
+  padding-top: 50px; */
+  color: rgb(226, 226, 226);
+  font-size: 1.3rem;
+ 
+ opacity: 0;
+  
+}
+
+.zoom {
+ 
+
+  transition: transform .2s;
+  
+  
+}
+.logo:hover {filter: grayscale(0%);}
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+.ov {
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #444;
+}
+.citiesTime {
+  font-size: 14px;
+  position: absolute;
+  width: 100%;
+  top: 92%;
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Miriam Libre', sans-serif;
+  color: rgb(236, 236, 236);
+  mix-blend-mode: difference;
+  font-weight: 1500;
+  margin: 0 auto;
+  
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+
+}
+
+nav a:hover {
+  background-color: #555;
+}
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #007bff00;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+}
+.video-prv {
+flex-wrap: wrap;
+flex:1;
+height: 100dvh;
+width: 99%;
+object-fit: contain;
+background-color: #202020;
+transition: 0.5s ease-in-out;
+
+
+
+}
+.video-prv iframe {
+  border-width: 0px;
+}
+
+
+.videomain {
+ 
+  
+  width: 100%;
+  height: 70dvh;
+  position: relative;
+  object-fit: contain;
+  opacity: 50%;
+  border-radius: 0;
+  padding-bottom: 20dvh;
+  z-index: 4;
+  
+}
+.video-prv-main {
+  height: 100%;
+ 
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap;
+  flex:1;
+  height: 100dvh;
+  width: 60%;
+  object-fit: fill;
+  padding-left: 20%;
+  padding-top: 4%; */
+}
+
+.video-prv-main video{
+  width: 70%;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+ 
+}
+.video {
+
+  width: 100%;
+  height: 100dvh;
+  flex: 1;
+  z-index: 4;
+  
+}
+.maincontainer-prj {
+
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+  flex-wrap: wrap;
+ 
+
+  
+}
+.img-prv {
+ 
+  flex: 1;
+height: 100dvh;
+}
+.menubar {
+
+  opacity: 100;
+}
+
+.vidbg {
+object-fit: contain;
+
+}
+/* { smooth scroll  ----------------------------------------------- */
+
+.lenis.lenis-smooth {
+  max-width: 100%;
+  width: auto;
+  margin: 7.5%;
+  margin-top: 3%;
+  
+  scroll-behavior: auto;
+  padding: 0;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+
+  padding:0;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+/* end smoothscroll ----------------------------------------------- */
+
+
+/* contact section  ----------------------------------------------- */
+.contact {
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  width: 100%;
+  height: 100dvh;
+  align-items: center;
+  align-content: center;
+  background: rgb(212,212,212);
+background: linear-gradient(180deg, rgba(212, 212, 212, 0.021) 1%, rgba(29,29,29,1) 2%);
+
+
+}
+.contact-info {
+  padding: 0%;
+  width: 50%;
+  flex:1 ;
+  position: relative;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  font-family: 'Miriam Libre', sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  color: #e9e9e9;
+  
+
+}
+.pad0 {
+  padding-top: 0px;
+  padding-left: 0px;
+  margin-bottom: 20px;
+}
+
+/* end contact section  ----------------------------------------------- */
+
+
+
+.landing {
+  overflow-x: hidden;
+    margin: 0; /* Ensures no unintentional margins cause overflow */
+    padding: 0;
+  /*width: 100%;*/
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
+
+/* mobile version ---------------------------------------------------------- */
+@media only screen and (max-width: 900px) {
+
+  .hide-1 {display:none;}
+	.hide-2 {visibility:hidden;}
+
+  .image-container-two {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr ;
+    grid-template-areas:"prjcarda"
+    "prjcardb";
+  }
+  .image-container-two-two {
+      grid-template-columns: 1fr;
+      grid-template-rows: 2fr ;
+      grid-template-areas:"prjcarda"
+      "prjcardb";
+    }
+    .body{
+      
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0px;
+    }
+    .image-container-05 {
+    
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:"prjcarda""prjcardb";
+  }
+  .image-container-two-flipped {
+      
+      grid-template-columns: 1fr; 
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:"prjcarda""prjcardb";
+  }
+  .videomain {
+   height: 100dvh;
+     flex: 1;
+    padding-bottom: 0dvh;
+    position: relative;
+    object-fit: contain;
+    opacity: 50%;
+    border-radius: 0; 
+  }
+  .video-prv-main video {
+    margin: 0 auto;
+    width: 90dvw;
+  
+    /* flex-wrap: wrap;
+    flex:1;
+    height: auto;
+    width: auto;
+    object-fit: cover;
+     */
+  }
+  .video-bg {
+    object-fit: cover;
+  }
+  .h2{
+    display: block;
+    font-size: 10px;
+  }
+  .text h2{
+    font-size: 110px;
+    padding-top: 30dvh;
+    align-items: center;
+    display: block;
+
+  }
+  
+  .landing {
+    height: 20vh;
+  }
+  .videomain {
+    width: 100%;
+  }
+  .citiesTime {
+    font-size: 15px;
+    position: absolute;
+    width: 100%;
+    top: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: 'Miriam Libre', sans-serif;
+    color: rgb(236, 236, 236);
+    mix-blend-mode: difference;
+    font-weight: 1500;
+    margin: 0 auto;
+    justify-items: center;
+    align-items: center;
+    opacity: 0;
+    
+  }
+  .logo {width:60px; margin: 0px; padding-left: 15px;}
+  .contact-info .logo {
+    width: 100%;
+    margin: 0px;
+    height: 80dvh;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .prj-card-a-img {
+    filter: grayscale(0%);
+  }
+
+  .prj-card-a-img:hover {
+    filter: grayscale(0%);
+}
+  .text h2{
+    font-size: 30px;
+    padding-top: 40dvh;
+    align-items: center;
+    display: block;
+    
+  }
+.prj-title {
+  font-size: 14px;
+}
+.prj-date {
+  font-size: 14px;
+}
+
+  .landing {
+    height: 20dvh;
+
+  }
+  .owner {
+    font-size: 14px;
+  }
+  .logo {width:50px; margin: 0px;}
+  .contact-info .logo {
+    width: 100%;
+    margin: 0px;
+    height: 10dvh;
+  }
+}
+.hiddenbtn {
+  z-index: 4;
+  background: none;
+  border-width: 0px;
+  position: relative;
+
+}
+.contact-info .logo {
+
+ z-index: 4;
+  /* padding-top: 50px;
+  padding-left: 30px; */
+  height: auto;
+  /* object-fit: fill; */
+ width: 7%;
+  display:block;
+  /* margin: 50px; */
+}
+.privcy {
+  padding-top: 30%;
+  font-size: 8.5pt;
+}
