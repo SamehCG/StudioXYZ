@@ -75,6 +75,23 @@ body {
     grid-template-rows: 1fr;
     grid-template-areas:"prjcarda prjcarda prjcarda prjcarda prjcardb prjcardb prjcardb";
 }
+
+
+.image-container-video {
+  flex: 1;
+  font-family: 'Miriam Libre', sans-serif;
+  display: grid;
+  color: rgb(34, 34, 34);
+  font-size: 20px;
+  height: 100dvh;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:"prjcarda prjcarda prjcarda prjcarda prjcarda prjcarda prjcarda";
+  
+  
+}
+
+
 .image-container-two-two-flipped {
   /*/max-width: 100%;*/
   flex: 1;
@@ -577,7 +594,6 @@ background: linear-gradient(180deg, rgba(212, 212, 212, 0.021) 1%, rgba(29,29,29
   display: flex;
   flex-direction: column;
 }
-
 
 
 
