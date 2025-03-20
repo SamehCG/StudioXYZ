@@ -323,7 +323,7 @@ h2{
   background-color: #202020;
 
 }
-.logo {
+. {
  z-index: 4;
  /*padding-top: 25px;*/
   /*padding-left: 30px; */
@@ -340,7 +340,7 @@ h2{
 }
 
  
-.logo img{
+. img{
   width: 100%; /* Make the image fill the container width */
   height: auto; /* Maintain the aspect ratio */
   display: block;
@@ -707,7 +707,7 @@ background: linear-gradient(180deg, rgba(212, 212, 212, 0.021) 1%, rgba(29,29,29
   .logo {width:60px; margin: 0px; padding-left: 15px;}
   .contact-info .logo {
     width: 60px;
-    margin: 0px;
+    margin: 15px;
     height: 80dvh;
   }
 }
