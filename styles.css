@@ -706,7 +706,7 @@ background: linear-gradient(180deg, rgba(212, 212, 212, 0.021) 1%, rgba(29,29,29
   }
   .logo {width:60px; margin: 0px; padding-left: 15px;}
   .contact-info .logo {
-    width: 100%;
+    width: 60px;
     margin: 0px;
     height: 80dvh;
   }
