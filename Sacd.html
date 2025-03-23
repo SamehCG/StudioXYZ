@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brothers film</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Cover Image */
+        .cover-image {
+            width: 100%;
+            height: 60vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.7);
+        }
+
+        /* Description Section */
+        .description-section {
+            padding: 40px 10%;
+            max-width: 1600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Video */
+        .description-section .video-container {
+            margin-bottom: 40px;
+        }
+
+        .image-preview-1, .image-preview-2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Specific styling for scan images to stay on the same row without overflow */
+        .image-preview-2.scan-images {
+            flex-wrap: nowrap; /* Prevent wrapping */
+        }
+
+        .image-preview-2.scan-images img {
+            max-width: calc(50% - 10px); /* Half the container width minus half the gap */
+            width: 100%; /* Ensure it scales down */
+            flex-shrink: 1; /* Allow shrinking to fit */
+        }
+
+        .description-section iframe {
+            width: 70vw;
+            max-width: 100%;
+            border-radius: 10px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .description-section iframe:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Article Content */
+        .article-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            text-align: left;
+        }
+
+        .article-content h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .article-content p {
+            
+            /*line-height: 0px;*/
+            margin-bottom: 20px;
+        }
+
+        .article-content img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+            cursor: pointer;
+        }
+
+        .article-content img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Specific styling for the storyboard image */
+        .article-content img.full-width {
+            max-width: 1600px;
+        }
+
+        /* Lightbox Overlay */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80vh;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-controls {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .lightbox-controls button {
+            background: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-controls button:hover {
+            background: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cover-image {
+                height: 30vh;
+            }
+
+            .description-section {
+                padding: 20px 5%;
+            }
+
+            .description-section iframe {
+                width: 90vw;
+            }
+
+            .article-content h1 {
+                font-size: 28px;
+            }
+
+            .article-content p {
+                font-size: 16px;
+            }
+
+            .article-content img {
+                max-width: 100%;
+            }
+
+            .article-content img.full-width {
+                max-width: 100%;
+            }
+
+            .image-preview-2.scan-images img {
+                max-width: calc(50% - 10px); /* Maintain same row on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Image -->
+    <div class="cover-image" style="background-image: url('assets/img/film/SACD.jpg');"></div>
+
+    <!-- Description Section -->
+    <div class="description-section">
+        <!-- Article Content -->
+        <div class="article-content">
+            <h1>Brothers</h1>
+            <p>
+                The film tells the story of a nine-year-old child living in France after fleeing the war in Syria with his family by crossing the sea.
+                His connection to his homeland surfaces through memories that intermittently visit him, serving as the narrator of his journey—from the 
+                outbreak of the war in Syria to his arrival and life in France. Divided into four segments, the film traces the distinct stages of refuge 
+                and their causes, culminating in his reaching and integrating into a host country. 
+                Aimed at young, non-Arabic-speaking audiences, the film offers a glimpse into the real experiences of countless refugees who lost their homeland to war,
+                introducing them to the harsh realities faced by displaced people worldwide. It also speaks to the nations that have opened their doors to refugees, 
+                often unaware that these individuals and communities carry with them the weight of wars and years of fear. These are people who escaped 
+                killing, slaughter, and homelessness; the image seen today is of someone who might be met with superficial understanding as a 
+                refugee, but whose deeper truth—a person forced into exile by war through a journey marked by humiliation, displacement, 
+                hunger, and oppression—demands greater empathy.
+
+
+            </p>
+            <div class="image-preview-2">   
+                <img src="assets/img/film/05.jpg" alt="Storyboard for Further Behind" class="full-width">
+            </div>
+            <p>
+                <h2> Script and story development</h2>
+                In the pre-production phase of Further Behind, 
+                 we took on the task of crafting a story rooted in the 
+                 workshops held with participants from the Syrian 
+                 refugee communities in northern Lebanon’s camps. Following these sessions, 
+                 we worked with the rich, detailed drawings produced by the participants, which vividly 
+                 captured the daily struggles of life in the camps ranging from a long list of challenges 
+                 like scarce resources to overcrowded conditions. To shape these insights into a cohesive narrative,
+                  we conducted extensive research, ultimately building the story around two children from the camps
+                   whose enduring friendship unfolds as they grow up together. The film centers on the memory of one 
+                   character, now an adult, reflecting on his childhood in the camp as his wife prepares to give birth 
+                   to their first child. Through his recollections, we follow the two young friends as they invent creative
+                    solutions to improve life in their harsh surroundings undaunted by a reality that resists easy fixes,
+                     they persistently strive to make things better.
+                 
+             </p>
+         
+            <div class="image-preview-2 scan-images">
+                <img src="assets/img/film/Char01.jpg" alt="Scans from the results of drawing sessions">
+                <img src="assets/img/film/Char02.jpg" alt="Motion Graphics Sample 2">
+            </div>
+            
+           
+          
+           
+            <!-- Video -->
+            <!--div class="video-container">
+                <div style="padding:70% 0 20px 0; position:relative;">
+                    <iframe src="https://player.vimeo.com/video/1068561594?badge=0&autopause=0&player_id=0&app_id=58479" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                            style="position:absolute; top:0; left:0; width:100%; height:100%;" 
+                            title="AUB Film AA 003"></iframe>
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+            </div>
+        </div>
+    </div-->
+
+    <!-- Lightbox Overlay -->
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-img" src="" alt="Preview">
+        <div class="lightbox-controls">
+            <button onclick="zoomIn()">Zoom In</button>
+            <button onclick="zoomOut()">Zoom Out</button>
+        </div>
+    </div>
+    <div class="backhome"><a href="VIDEOS ANIMATION PRODUCTION.html">back home </a></div>
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const images = document.querySelectorAll('.article-content img');
+        let currentScale = 1;
+
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.style.display = 'flex';
+                currentScale = 1; // Reset zoom
+                lightboxImg.style.transform = `scale(${currentScale})`;
+            });
+        });
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+
+        function zoomIn() {
+            currentScale += 0.2;
+            lightboxImg.style.transform = `scale(${currentScale})`;
+        }
+
+        function zoomOut() {
+            currentScale = Math.max(0.2, currentScale - 0.2); // Prevent zooming out too far
+            lightboxImg.style.transform = `scale(${currentScale})`;
+        }
+    </script>
+</body>
+</html>

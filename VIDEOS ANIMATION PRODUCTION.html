@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Video Showcase</title>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .film-strip {
+            padding: 0px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .video-section {
+            filter: grayscale(100%);
+            width: 100%;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+            filter: brightness(0.7);
+            border-radius: 70px;
+            z-index: 0;
+        }
+
+        .text-layer {
+            position: absolute;
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+            z-index: 2;
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 32px;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            cursor: pointer;
+        }
+
+        .description {
+            margin-top: 10px;
+            font-size: 20px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: block;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .title:hover + .description {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .video-section:hover {
+            filter: grayscale(0%);
+        }
+        .video-section.in-view .title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .film-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: url('https://www.transparenttextures.com/patterns/black-paper.png');
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .header {
+            display: flex;
+            width: 100%;
+            
+            max-height: 12vh;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+            filter: grayscale(100%);
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none; /* Hidden by default on desktop */
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .hamburger:hover {
+            filter: grayscale(0%);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            filter: grayscale(0%);
+        }
+
+        .titles-list {
+            display: flex;
+            flex-direction: row;
+            gap: 60px;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .titles-list a {
+            color: white; /* Ensure text color matches your design */
+            text-decoration: none; /* Remove underline from links */
+            white-space: nowrap; /* Preserve nowrap from original div */
+            transition: color 0.3s ease; /* Optional: Smooth color transition on hover */
+        }
+
+        .titles-list a:hover {
+            color: #ccc; /* Optional: Lighten color on hover for feedback */
+        }
+
+        .title {
+            color: white; /* Ensure link color matches your design */
+            text-decoration: none; /* Remove underline from links */
+        }
+
+/* Ensure the hover effect for description still works */
+.text-layer:hover .description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+        .titles-list div {
+            white-space: nowrap;
+        }
+
+        .video-section::before,
+        .video-section::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .video-section::before {
+            top: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        }
+
+        .video-section::after {
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px; /* Reduced padding for mobile */
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Hidden off-screen by default */
+                width: 70%;
+                height: 100%;
+                background-color: #1b1b1b;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: right 0.3s ease;
+                z-index: 3;
+            }
+
+            .nav-menu.active {
+                right: 0; /* Slide in when active */
+            }
+
+            .titles-list {
+                flex-direction: column;
+                gap: 20px;
+                font-size: 16px; /* Larger text for mobile readability */
+            }
+
+            .social-icons {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .video-section {
+                height: 60vh; /* Reduce height for mobile */
+            }
+
+            .title {
+                font-size: 24px; /* Smaller title on mobile */
+            }
+
+            .description {
+                font-size: 16px; /* Smaller description on mobile */
+            }
+            .background-image {
+                border-radius:0 ;
+
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="assets/img/Logo Morphoviz.jpg" data-tilt data-tilt-max="10" speed="500" data-tilt-reverse="false" data-tilt-scale="1.1">
+        </div>
+        <button class="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-menu">
+            <div class="titles-list">
+                <a href="AnimationFilmProduction.html" class="animfilm">Animation Film Production</a>
+                <a href="MotionGraphics.html" class="motiondsgn">Motion Graphics</a>
+                <a href="AnimatedVideos.html" class="animaVid">Animated Videos</a>
+                <a href="3DAnimation.html" class="3dVid">3D Animation</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://vimeo.com/yourusername" target="_blank"><i class="fab fa-vimeo-v"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="film-strip">
+        <div class="film-overlay"></div>
+        <div class="video-section">
+            <div class="background-image" data-parallax="0.1" style="background-image: url('assets/img/film/SACD.jpg')"></div>
+            <div class="text-layer" data-parallax="0.2">
+                <a href="Sacd.html" class="title">Brothers</a>
+                <div class="description">A short animation film.</div>
+            </div>
+        </div>
+        <div class="video-section">
+            <div class="background-image" data-parallax="0.1" style="background-image: url('assets/img/film/Further behind.jpg')"></div>
+            <div class="text-layer" data-parallax="0.2">
+                <a href="FurtherBehind.html" class="title">Further Behind</a>
+                <div class="description">A collection of my best animation work showcasing different styles and techniques.</div>
+            </div>
+        </div>
+        <div class="video-section">
+            <div class="background-image" data-parallax="0.1" style="background-image: url('assets/img/film/Dots01.JPG')"></div>
+            <div class="text-layer" data-parallax="0.2">
+                <a href="Dots.html" class="title">Dots</a>
+                <div class="description">Short animation film.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
+
+        function updateParallax() {
+            const sections = document.querySelectorAll('.video-section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const scrollProgress = (rect.top - window.innerHeight * 0.5) / window.innerHeight;
+                const bg = section.querySelector('.background-image');
+                const text = section.querySelector('.text-layer');
+
+                const bgSpeed = parseFloat(bg.getAttribute('data-parallax')) || 0.8;
+                const textSpeed = parseFloat(text.getAttribute('data-parallax')) || 0.5;
+
+                const bgTranslate = scrollProgress * bgSpeed * 200;
+                const textTranslate = scrollProgress * textSpeed * -150;
+
+                bg.style.transform = `translateY(${bgTranslate}px)`;
+                text.style.transform = `translateY(${textTranslate}px)`;
+            });
+        }
+
+        lenis.on('scroll', () => {
+            updateParallax();
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        updateParallax();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        document.querySelectorAll('.video-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
