@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Portfolio</title>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script> 
+    <style>
+        body {
+            background-color: #181818;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-buttons {
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #00bcd4;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1600px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .video {
+            background: #222;
+            padding: 15px;
+            border-radius: 8px;
+            display: none; /* Hidden by default, shown via JS */
+        }
+
+        .video.show {
+            display: block; /* Shown when filtered */
+        }
+
+        .title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #00bcd4;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Video Portfolio</h1>
+
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="logo-animation">Logo Animation</button>
+        <button class="filter-btn" data-filter="animation-videos">Animation Videos</button>
+        <button class="filter-btn" data-filter="explainers">Explainers</button>
+        <button class="filter-btn" data-filter="motion-design">Motion Design</button>
+        <button class="filter-btn" data-filter="social-media">Social Media</button>
+    </div>
+
+    <div class="container">
+        <div class="video" data-category="animation-videos motion-design">
+            <div class="title">Animation Showreel</div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/i5yECSbbIH0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="video" data-category="animation-videos motion-design">
+            <div class="title">La Fête de Lemuria</div>
+            <div class="video-wrapper">
+                <iframe src="https://player.vimeo.com/video/589943145" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="video" data-category="explainers social-media">
+            <div class="title">Voting Age</div>
+            <div class="video-wrapper">
+                <iframe src="https://player.vimeo.com/video/207014138" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="video" data-category="explainers social-media">
+            <div class="title">Green Impact Award</div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/JA1t7cKRo34" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="video" data-category="explainers motion-design">
+            <div class="title">Migration is Not Simply a Word</div>
+            <div class="video-wrapper">
+                <iframe src="https://player.vimeo.com/video/190243392" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="video" data-category="logo-animation motion-design">
+            <div class="title">AKFAR Program - Logo Animation</div>
+            <div class="video-wrapper">
+                <iframe src="https://player.vimeo.com/video/287877269" allowfullscreen></iframe>
+            </div>
+            
+        </div>
+
+        <div class="video" data-category="animation-videos motion-design">
+            <div class="title">Creative Animation</div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/1OrElGFtCe4" allowfullscreen></iframe>
+            </div>
+           
+        </div>
+        
+        <div class="video" data-category="animation-videos motion-design">
+            <div class="title">Lanloon & Zayzoon</div>
+            <div class="video-wrapper">
+                <iframe src="https://player.vimeo.com/video/207352754" allowfullscreen></iframe>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+
+<script>
+  const lenis = new Lenis();
+  
+  lenis.on('scroll', (e) => {
+      console.log(e);
+  });
+
+  function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  // Filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const videos = document.querySelectorAll('.video');
+
+    // Show all videos initially
+    videos.forEach(video => video.classList.add('show'));
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            const filter = button.getAttribute('data-filter');
+
+            videos.forEach(video => {
+                const categories = video.getAttribute('data-category').split(' ');
+                
+                if (filter === 'all' || categories.includes(filter)) {
+                    video.classList.add('show');
+                } else {
+                    video.classList.remove('show');
+                }
+            });
+        });
+    });
+  });
+</script>
+
+</html>
