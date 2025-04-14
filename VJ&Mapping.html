@@ -142,36 +142,55 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
+@media (max-width: 768px) {
+  #hero, #project-hero {
+    height: 30vh;
+  }
 
-    @media (max-width: 768px) {
-      #hero, #project-hero {
-        height: 50vh;
-      }
+  .main-video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
 
-      .main-video {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-      }
+  #about h2 {
+    font-size: 2rem;
+  }
 
-      #about h2 {
-        font-size: 2rem;
-      }
+  #about p {
+    font-size: 1rem;
+    padding-top: 5px;
+    width: 90%;
+  }
 
-      #about p {
-        font-size: 1rem;
-        padding-top: 100px;
-      }
+  #projects {
+    padding: 30px 10px;
+    height: auto; /* Allow full height to fit all cards */
+  }
 
-      .project-card {
-        flex: 1 1 100%;
-      }
+  .project-grid {
+    flex-direction: column;
+    align-items: center;
+  }
 
-      nav a {
-        margin: 0 10px;
-        font-size: 0.9rem;
-      }
-    }
+  .project-card {
+    flex: 1 1 100%;
+    width: 100%;
+    margin-bottom: 20px;
+    height: auto;
+  }
+
+  .project-card img,
+  .project-card video {
+    height: auto;
+    max-height: 200px;
+  }
+
+  nav a {
+    margin: 0 10px;
+    font-size: 0.9rem;
+  }
+}
 
     /* Footer Styles */
     footer {
